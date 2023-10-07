@@ -14,12 +14,14 @@ module.exports = {
             {name: 'Online', value: 'online'},
             {name: 'Idle', value: 'idle'},
             {name: 'Under maintenance', value: 'under maintenance'},
-            {name: 'Offline', value: 'Offline'},
+            {name: 'Offline', value: 'offline'},
         )
     ),
     async execute(interaction) {
         const { client, user } = interaction;
         const status = interaction.options.getString('status');
+
+        let color = ''
 
         if (status === 'online') {
             color = "#1F8B4C";
