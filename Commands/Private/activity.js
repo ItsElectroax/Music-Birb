@@ -31,16 +31,6 @@ module.exports = {
     async execute(interaction) {
         const { client, user } = interaction;
 
-        // Check if the user executing the command is the specific username you want to allow
-        const allowedUsername = author;
-        if (user.id !== allowedUsername) {
-            const error = new EmbedBuilder()
-                .setTitle('Uh, oh!')
-                .setColor('#E74C3C')
-                .setDescription('You are not authorised to use this command!')
-            return interaction.reply({ embeds: [error], ephemeral: true });
-        }
-
         const activity = interaction.options.getString('activity');
         let name = interaction.options.getString('name');
         const url = interaction.options.getString('url');
