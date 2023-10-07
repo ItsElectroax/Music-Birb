@@ -1,5 +1,5 @@
 const {Presence, Client, GatewayIntentBits, Partials, AllowedMentionsTypes, Collection, EmbedBuilder } = require('discord.js');
-const { version } = require("./package-lock.json");
+const { version } = require("./package.json");
 
 const {DisTube} = require('distube');
 const {SpotifyPlugin} = require('@distube/spotify');
