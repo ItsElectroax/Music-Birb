@@ -1,6 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require("discord.js");
-const {client} = require("../index");
-const distube = require('../index');
+const { client, distube } = require("../index");
 
 module.exports = {
     data: new SlashCommandBuilder()
