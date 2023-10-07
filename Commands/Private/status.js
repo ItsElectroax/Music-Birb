@@ -1,10 +1,10 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { author } = require('../../package-lock.json')
 
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('status')
     .setDescription("Changes the bot's status.")
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
     .addStringOption(option =>
       option
         .setName('status')
@@ -19,17 +19,6 @@ module.exports = {
     ),
     async execute(interaction) {
         const { client, user } = interaction;
-        const allowedUsername = author;
-
-        // Check if the user executing the command is the specific username you want to allow
-        if (user.id !== allowedUsername) {
-            const error = new EmbedBuilder()
-            .setTitle('Uh, oh!')
-            .setColor('#E74C3C')
-            .setDescription('You are not authorised to use this command!')
-          return interaction.reply({ embeds: [error], ephemeral: true });
-        }
-
         const status = interaction.options.getString('status');
 
         if (status === 'online') {
