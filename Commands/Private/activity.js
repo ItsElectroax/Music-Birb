@@ -1,11 +1,11 @@
 const { EmbedBuilder, ActivityType, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
-const { author } = require('../../package-lock.json')
 const { changeActivity, clearActivityInterval } = require('../../Events/Client/activities')
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('activity')
         .setDescription("Changes the bot's activity.")
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
         .addStringOption(option =>
             option.setName('activity')
                 .setDescription('The new activity to set.')
