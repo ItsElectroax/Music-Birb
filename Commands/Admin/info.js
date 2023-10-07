@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js')
-const { author, version: botVersion } = require('../../package-lock.json');
+const { version: botVersion } = require('../../package.json');
 const djsVersion = require('discord.js').version;
 const { PermissionsBitField } = require('discord.js');
 const { DiscordAPIError } = require('discord.js');
@@ -38,9 +38,6 @@ module.exports = {
           user,
           member
       } = interaction;
-      const allowedUsername = author;
-
-      // Check if user is an administrator
 
           let color = "";
           if (interaction.client.user.presence.status === "online") {
