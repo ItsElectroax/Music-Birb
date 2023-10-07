@@ -1,6 +1,6 @@
 {
   "name": "multi",
-  "version": "1.8.21",
+  "version": "1.8.3",
   "description": "This is an official MultiCord Universe bot!",
   "main": "index.js",
   "scripts": {
