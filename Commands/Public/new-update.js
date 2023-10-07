@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
-const {version} = require('../../package-lock.json');
+const {version} = require('../../package.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
