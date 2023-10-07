@@ -60,7 +60,7 @@ client.on('guildCreate', guild => {
     }
 );
 
-client.login(client.config.token).then(() => {
+client.login(process.env.TOKEN).then(() => {
     loadEvents(client);
     loadCommands(client);
 })
