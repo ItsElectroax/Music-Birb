@@ -16,8 +16,6 @@ module.exports = {
 
             const query = options.getString("query");
             const voiceChannel = member.voice.channel;
-            const connection = getVoiceConnection(guildId);
-            const message = "lol";
 
             const embed = new EmbedBuilder();
 
@@ -54,8 +52,8 @@ module.exports = {
                 return interaction.reply({ embeds: [embed], ephemeral: true });
             };
       
-            if (!voiceChannel == guild.members.me.voice.channelId) {
-                embed.setColor("red").setTitle("Uh, oh!").setDescription(`The music has already been reproduced in <#${guild.member.me.voice.channelId}>`);
+            if (voiceChannel.id !== guild.members.me.voice.channelId) {
+                embed.setColor("Red").setTitle("Uh, oh!").setDescription(`The music has already been reproduced in <#${guild.members.me.voice.channelId}>`);
                 return interaction.reply({ embeds: [embed], ephemeral: true});
             };
 
