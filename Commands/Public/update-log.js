@@ -5,6 +5,16 @@ module.exports = {
     .setName('update-log')
     .setDescription('See the history of the Multi\'s updates!'),
     async execute(interaction){
+        const v8 = new EmbedBuilder()
+        .setColor('Gold')
+        .setTitle(`(NEW) Update log v1.8.31`)
+        .setDescription('Check out what is new in this update of Multi!')
+        .addFields(
+            {name: 'Bug fixes', value: '- The bot will no longer leave the current VC to join the other one (This was supposed to be an initial feature, but it never worked)'},
+            {name: 'What\s new?', value: '- NONE'},
+            {name: 'Upcoming updates', value: '- Moderation tools Coming Soon™!\n- `/rewind` and `/fast-forward` commands coming to music!'}
+        )
+        .setFooter({text: '16/10/2023'})
         const v7 = new EmbedBuilder()
         .setColor('Gold')
         .setTitle(`(NEW) Update log v1.8.3`)
@@ -75,6 +85,6 @@ module.exports = {
                 {name: 'Upcoming updates', value: '- Buttons coming to music (beta)!'}
             )
             .setFooter({text: '07/08/2023'})
-        interaction.reply({embeds: [v7, v6, v5, v4, v3, v2, v1], ephemeral: true})
+        interaction.reply({embeds: [v8, v7, v6, v5, v4, v3, v2, v1], ephemeral: true})
     }
 }
