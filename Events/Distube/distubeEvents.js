@@ -22,11 +22,11 @@ const getTimeDiff = (song) => {
   let minutesDiff = currentTimeMinutes + songMinutes;
 
   // Adjust hours and minutes if necessary
-  if (minutesDiff > 60) {
+  if (minutesDiff >= 60) {
     hoursDiff++;
     minutesDiff -= 60;
   }
-  if (hoursDiff > 24) {
+  if (hoursDiff >= 24) {
     hoursDiff -= 24;
   }
 
@@ -45,24 +45,56 @@ client.distube.on('playSong', (queue, song) =>
             embeds: [
             new EmbedBuilder()
                 .setColor("Green")
-                .setTitle("Playing")
+                .setTitle(":headphones:・Playing")
                 .addFields(
                     { name: 'Title', value: `[${song.name}](${song.url})`, inline: true },
                     { name: 'Author', value: `[${song.uploader.name}](${song.uploader.url})`, inline: true },
                     { name: ' ', value: ' ' },
                     { name: 'Requested by', value: `${song.user}`, inline: true },
                     { name: 'Duration', value: `\`${song.formattedDuration} (${getTimeDiff(song)})\``, inline: true },
-                    { name: 'Status', value: `${status(queue)}` }
+                    { name: 'Status', value: `${status(queue)}` },
+                    { name: 'Info', value: `Views: \`${song.views}\` :eye: | Likes: \`${song.likes}\` :thumbsup:` },
                 )
                 .setThumbnail(song.thumbnail)
-            ], flags: [ 4096 ]
+            ], flags: [ 4096 ],
+
+            components: [
+                new ActionRowBuilder()
+                    .addComponents(
+                    new ButtonBuilder()
+                        .setCustomId('rewind')
+                        .setStyle(ButtonStyle.Primary)
+                        .setEmoji('⏪'),
+            
+                    new ButtonBuilder()
+                        .setCustomId('pause')
+                        .setStyle(ButtonStyle.Success)
+                        .setEmoji('⏸️'),
+                    
+                    new ButtonBuilder()
+                        .setCustomId('skip')
+                        .setStyle(ButtonStyle.Primary)
+                        .setEmoji('⏩'),
+            
+                    new ButtonBuilder()
+                        .setCustomId('stop')
+                        .setStyle(ButtonStyle.Danger)
+                        .setEmoji('⏹️'),
+            
+                    new ButtonBuilder()
+                        .setCustomId('loopSong')
+                        .setStyle(ButtonStyle.Primary)
+                        .setEmoji('🔂'),
+
+                    )
+            ]
         }),
     )
     .on('addSong', (queue, song) =>
         queue.textChannel.send(
             {
                 embeds: [new EmbedBuilder().setColor("Green")
-                    .setDescription(`🎶 | Added [${song.name}](${song.url}) - \`${song.formattedDuration}\` to the queue by ${song.user}`)]
+                    .setDescription(`🎶・Added [${song.name}](${song.url}) - \`${song.formattedDuration}\` to the queue by ${song.user}`)], flags: [ 4096 ]
             }
         )
     )
@@ -70,8 +102,7 @@ client.distube.on('playSong', (queue, song) =>
         queue.textChannel.send(
             {
                 embeds: [new EmbedBuilder().setColor("Green")
-                    .setDescription(`🎶 | Added \`${playlist.name}\` playlist (${playlist.songs.length
-                        } songs) to queue\n${status(queue)}`)]
+                    .setDescription(`🎶・Added \`${playlist.name}\` playlist (${playlist.songs.length} songs) to queue\n${status(queue)}`)], flags: [ 4096 ]
             }
         )
     )
@@ -83,10 +114,10 @@ client.distube.on('playSong', (queue, song) =>
         message.channel.send(
             {
                 embeds: [new EmbedBuilder().setColor("Red")
-                    .setDescription('`⛔ | No result found for \`${query}\`!`')]
+                    .setDescription('`⛔ | No result found for \`${query}\`!`')], flags: [ 4096 ]
             })
     )
     .on('finish', queue => queue.textChannel.send({
         embeds: [new EmbedBuilder().setColor("Green")
-            .setDescription('🏁 Queue finished!')]
+            .setDescription('🏁 Queue finished!')], flags: [ 4096 ]
     }));
