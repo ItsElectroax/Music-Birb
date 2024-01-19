@@ -1,21 +1,21 @@
 const { EmbedBuilder, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
-const {version} = require('../../package.json');
+const {version, name} = require('../../package.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('new-update')
-    .setDescription('See what is new in the Multi\'s service!'),
+    .setDescription(`See what is new in the ${name}\'s service!`),
     async execute(interaction){
         const embed = new EmbedBuilder()
         .setColor('Gold')
         .setTitle(`(NEW) Update log v${version}`)
-        .setDescription('Check out what is new in this update of Multi!')
+        .setDescription(`Check out what is new in this update of ${name}!`)
         .addFields(
-            {name: 'Bug fixes', value: '- The bot will no longer leave the current VC to join the other one (This was supposed to be an initial feature, but it never worked)'},
-            {name: 'What\s new?', value: '- NONE'},
-            {name: 'Upcoming updates', value: '- `/rewind` and `/fast-forward` commands coming to music!'}
+            {name: 'Bug fixes', value: '- NONE'},
+            {name: 'What\s new?', value: '- `/player`command merged with the "Playing" embed!'},
+            {name: 'Upcoming updates', value: '- Moderation tools Coming Soon™!\n- `/rewind`, `/fast-forward`, `/seek` and `/playlist` commands coming to music!'}
         )
-        .setFooter({text: '16/10/2023'})
+        .setFooter({text: '17/01/2024'})
         interaction.reply({embeds: [embed]})
     }
 }
