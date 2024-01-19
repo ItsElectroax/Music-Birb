@@ -52,7 +52,7 @@ module.exports = {
                 return interaction.reply({ embeds: [embed], ephemeral: true });
             };
       
-            if (voiceChannel.id !== guild.members.me.voice.channelId) {
+            if (voiceChannel.id !== guild.members.me.voice.channelId && guild.members.me.voice.channelId !== null) {
                 embed.setColor("Red").setTitle("Uh, oh!").setDescription(`The music has already been reproduced in <#${guild.members.me.voice.channelId}>`);
                 return interaction.reply({ embeds: [embed], ephemeral: true});
             };
@@ -84,7 +84,10 @@ module.exports = {
                     row.components.forEach((button) => {
                       button.setDisabled(true);
                     });
-                    interaction.editReply({ components: [row] });}
+                    interaction.editReply({ components: [row] });
+                    setTimeout(() => {
+                        interaction.deleteReply();
+                    }, 10000)}
                   }, 60000);
         
                 try {
@@ -93,24 +96,28 @@ module.exports = {
                             num = 0
                             await client.distube.play(voiceChannel, result[num].url, { textChannel: channel, member: member });
                             await interaction.deleteReply()
+                            a=true
                         } else if (buttonInteraction.customId === 'two') {
                             num = 1
                             await client.distube.play(voiceChannel, result[num].url, { textChannel: channel, member: member });
                             await interaction.deleteReply()
+                            a=true
                         } else if (buttonInteraction.customId === 'three') {
                             num = 2
                             await client.distube.play(voiceChannel, result[num].url, { textChannel: channel, member: member });
                             await interaction.deleteReply()
+                            a=true
                         } else if (buttonInteraction.customId === 'four') {
                             num = 3
                             await client.distube.play(voiceChannel, result[num].url, { textChannel: channel, member: member });
                             await interaction.deleteReply()
+                            a=true
                         } else if (buttonInteraction.customId === 'five') {
                             num = 4
                             await client.distube.play(voiceChannel, result[num].url, { textChannel: channel, member: member });
                             await interaction.deleteReply()
+                            a=true
                         }
-                        a=true
                     });
                 } catch (err) {
                     console.log(err);

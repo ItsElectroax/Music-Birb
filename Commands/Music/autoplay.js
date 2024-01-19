@@ -38,7 +38,13 @@ module.exports = {
                     return interaction.reply({ embeds: [embed], ephemeral: true });
                 }
                     queue.toggleAutoplay(option);
-                    embed.setColor("Blue").setDescription(`:arrows_counterclockwise: The queue has been set to \`autoplay ${option}\`.`);
+                    let bull = ""
+                    if(option===true){
+                        bull="on"
+                    } else {
+                        bull="off"
+                    };
+                    embed.setColor("Blue").setDescription(`:arrows_counterclockwise: The queue has been set to \`autoplay ${bull}\`.`);
                     return interaction.reply({ embeds: [embed], ephemeral: true });
 
             } catch (err) {

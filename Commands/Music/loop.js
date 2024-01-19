@@ -15,7 +15,7 @@ module.exports = {
     ),
 
     async execute(interaction, client){
-        const { member, options, guild } = interaction;
+        const { member, options, guild, channel } = interaction;
         const option = options.getString("options");
         const voiceChannel = member.voice.channel;
 
@@ -63,9 +63,12 @@ module.exports = {
             mode = mode ? (mode === 2? "Loop queue" : "Loop song") : "Off";
 
             embed.setColor("DarkAqua").setDescription(`${loomoji} Set loop mode to \`${mode}\`.`)
-            interaction.reply({ embeds: [embed] });
+            let reply = null;
+            interaction.reply({ embeds: [embed] }), reply = await interaction.fetchReply();
             setTimeout(()=> {
-                interaction.deleteReply();
+                client.channels.fetch(channel.id).then(channel => {
+                    channel.messages.delete(reply);
+                });
             }, 5000) 
         } catch (err) {
             console.log(err);

@@ -30,8 +30,11 @@ module.exports = {
                 if(!queue){
                     embed.setColor("Red").setTitle("Uh, oh!").setDescription("There is no active queue.");
                     return interaction.reply({ embeds: [embed], ephemeral: true });
+                } else if(queue.songs.length === 1){
+                    await queue.stop(voiceChannel);
+                } else {
+                    await queue.skip(voiceChannel);
                 }
-                await queue.skip(voiceChannel);
                 embed.setColor("Blue").setDescription(":fast_forward: The song has been skipped.");
                 interaction.reply({ embeds: [embed] });
                 setTimeout(()=> {

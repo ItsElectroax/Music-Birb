@@ -5,18 +5,17 @@ const {
     VoiceChannel,
     GuildEmoji,
 } = require("discord.js");
-const client = require("../../index");
-const { ffmpeg } = require("ffmpeg-static");
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("pause")
-        .setDescription("Pause the queue."),
+        .setName("shuffle")
+        .setDescription("Shuffles the queue."),
 
-    async execute(interaction) {
+    async execute(interaction, client) {
         const { member, guild } = interaction;
 
         const voiceChannel = member.voice.channel;
+        const option = interaction.options.getBoolean("options");
 
         const embed = new EmbedBuilder();
 
@@ -50,16 +49,22 @@ module.exports = {
                     .setDescription("There is no active queue.");
                 return interaction.reply({ embeds: [embed], ephemeral: true });
             }
-            await queue.pause(voiceChannel);
+            queue.shuffle();
+
             embed
-                .setColor("Orange")
-                .setDescription(":pause_button: The song has been paused.");
-            interaction.reply({ embeds: [embed] });
+                .setColor("Blue")
+                .setDescription(
+                    `:twisted_rightwards_arrows: The queue has been shuffled.`
+                );
+            await interaction.reply({ embeds: [embed] });
+
             setTimeout(() => {
-                interaction.deleteReply();
+                if (interaction){
+                    interaction.deleteReply();
+                }
             }, 5000);
         } catch (err) {
-            console.log(err);
+            err;
 
             embed
                 .setColor("Red")
