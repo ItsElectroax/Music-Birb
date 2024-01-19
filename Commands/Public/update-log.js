@@ -1,4 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const {name} = require('../../package.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -8,7 +9,7 @@ module.exports = {
         const v10 = new EmbedBuilder()
         .setColor('Gold')
         .setTitle(`(NEW) Update log v1.13.00`)
-        .setDescription('Check out what is new in this update of Multi!')
+        .setDescription(`Check out what is new in this update of ${name}!`)
         .addFields(
             {name: 'Bug fixes', value: '- NONE'},
             {name: 'What\s new?', value: '- `/player`command merged with the "Playing" embed!'},
@@ -18,7 +19,7 @@ module.exports = {
         const v9 = new EmbedBuilder()
         .setColor('Gold')
         .setTitle(`Update log v1.12.00`)
-        .setDescription('Check out what is new in this update of Multi!')
+        .setDescription(`Check out what is new in this update of ${name}!`)
         .addFields(
             {name: 'Bug fixes', value: '- NONE'},
             {name: 'What\s new?', value: '- `/shuffle` command added to music!'},
@@ -28,7 +29,7 @@ module.exports = {
         const v8 = new EmbedBuilder()
         .setColor('Gold')
         .setTitle(`Update log v1.11.01`)
-        .setDescription('Check out what is new in this update of Multi!')
+        .setDescription(`Check out what is new in this update of ${name}!`)
         .addFields(
             {name: 'Bug fixes', value: '- The bot will no longer leave the current VC to join the other one (This was supposed to be an initial feature, but it never worked)'},
             {name: 'What\s new?', value: '- NONE'},
@@ -38,7 +39,7 @@ module.exports = {
         const v7 = new EmbedBuilder()
         .setColor('Gold')
         .setTitle(`Update log v1.11.00`)
-        .setDescription('Check out what is new in this update of Multi!')
+        .setDescription(`Check out what is new in this update of ${name}!`)
         .addFields(
             {name: 'Bug fixes', value: '- `/player` has been fixed!'},
             {name: 'What\s new?', value: '- `/search` command added to music!'},
@@ -48,7 +49,7 @@ module.exports = {
         const v6 = new EmbedBuilder()
         .setColor('Gold')
         .setTitle(`Update log v1.10.11`)
-        .setDescription('Check out what is new in this update of Multi!')
+        .setDescription(`Check out what is new in this update of ${name}!`)
         .addFields(
             {name: 'Bug fixes', value: '- NONE'},
             {name: 'What\s new?', value: '- Slight music command convenience changes... nothing crazy.'},
@@ -58,7 +59,7 @@ module.exports = {
         const v4 = new EmbedBuilder()
         .setColor('Gold')
         .setTitle(`Update log v1.10.00`)
-        .setDescription('Check out what is new in this update of Multi!')
+        .setDescription(`Check out what is new in this update of ${name}!`)
         .addFields(
             {name: 'Bug fixes', value: '- `/player` command partially fixed, expect more updates!'},
             {name: 'What\s new?', value: '- `/autoplay` command added to music!\n- Dynamic loop and pause/resume controls added to `/player`!'},
@@ -68,7 +69,7 @@ module.exports = {
         const v3 = new EmbedBuilder()
         .setColor('Gold')
         .setTitle(`Update log v1.9.00`)
-        .setDescription('Check out what is new in this update of Multi!')
+        .setDescription(`Check out what is new in this update of ${name}!`)
         .addFields(
             {name: 'Bug fixes', value: '- NONE'},
             {name: 'What\s new?', value: '- Buttons added to music (BETA)!'},
@@ -78,7 +79,7 @@ module.exports = {
         const v2 = new EmbedBuilder()
             .setColor('Gold')
             .setTitle('Update log v1.8.00')
-            .setDescription('Check out what is new in this update of Multi!')
+            .setDescription(`Check out what is new in this update of ${name}!`)
             .addFields(
                 {name: 'Bug fixes', value: '- Live updates from `/info` command has been optimized.'},
                 {name: 'What\s new?', value: '- `/previous` command added to music!\n- `/update-log` command has been divided into two parts: `/update-log` and `/new-update`'},
@@ -88,7 +89,7 @@ module.exports = {
         const v1 = new EmbedBuilder()
             .setColor('Gold')
             .setTitle(`Update log v1.7.30`)
-            .setDescription('Check out what is new in this update of Multi!')
+            .setDescription(`Check out what is new in this update of ${name}!`)
             .addFields(
                 {name: 'Bug fixes', value: '- Bot does not crash on `/skip` if there are no songs left in the queue anymore.'},
                 {name: 'What\'s new?', value: '- Update log is here!\n- Help menu finaly added!\n- All commands are now fully updated to SlashCommandBuilder()'},
