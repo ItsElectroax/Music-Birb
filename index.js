@@ -47,7 +47,7 @@ client.on('guildCreate', guild => {
             .setColor('#AD1457')
             .setTitle('Hello, I\'m the new Music birb, an ultimate Discord bot!')
             .setDescription("Hark, behold! It is with great delight that I, a mere servant, have been summoned by the most exalted and venerable presence...")
-            .addFields({ name: "<a:ringbell:1084257163855286302> Who am I?", value: "```Thank you for adding me to your server. My purpose is moderation and your assistance in every way, to enhance your experience and experience of your members! I am ready for action! Here are a few things you should check out first...```"})
+            .addFields({ name: "<a:ringbell:1084257163855286302> Who am I?", value: "```Thank you for adding me to your server. My purpose is melodical assistance for your server, to enhance your experience and experience of your members! I am ready for action! Here are a few things you should check out first...```"})
             .addFields(
                 { name: '<a:info:1084253538462474424> Info', value: 'The default command prefix is `/`. Use </help:1114543164666171474> to see all available commands.' },
                 { name: '<a:staff:1084226375373832352> Support Server', value: 'Join the MultiCord Support server for help and updates: [UNDER CONSTRUCTION]' },
