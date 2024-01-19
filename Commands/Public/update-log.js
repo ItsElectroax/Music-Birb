@@ -5,19 +5,39 @@ module.exports = {
     .setName('update-log')
     .setDescription('See the history of the Multi\'s updates!'),
     async execute(interaction){
+        const v10 = new EmbedBuilder()
+        .setColor('Gold')
+        .setTitle(`(NEW) Update log v1.13.00`)
+        .setDescription('Check out what is new in this update of Multi!')
+        .addFields(
+            {name: 'Bug fixes', value: '- NONE'},
+            {name: 'What\s new?', value: '- `/player`command merged with the "Playing" embed!'},
+            {name: 'Upcoming updates', value: '- `/rewind`, `/fast-forward`, `/seek` and `/playlist` commands coming to music!'}
+        )
+        .setFooter({text: '17/01/2024'})
+        const v9 = new EmbedBuilder()
+        .setColor('Gold')
+        .setTitle(`Update log v1.12.00`)
+        .setDescription('Check out what is new in this update of Multi!')
+        .addFields(
+            {name: 'Bug fixes', value: '- NONE'},
+            {name: 'What\s new?', value: '- `/shuffle` command added to music!'},
+            {name: 'Upcoming updates', value: '- `/rewind`, `/fast-forward`, `/seek` and `/playlist` commands coming to music!'}
+        )
+        .setFooter({text: '13/01/2024'})
         const v8 = new EmbedBuilder()
         .setColor('Gold')
-        .setTitle(`(NEW) Update log v1.8.31`)
+        .setTitle(`Update log v1.11.01`)
         .setDescription('Check out what is new in this update of Multi!')
         .addFields(
             {name: 'Bug fixes', value: '- The bot will no longer leave the current VC to join the other one (This was supposed to be an initial feature, but it never worked)'},
             {name: 'What\s new?', value: '- NONE'},
-            {name: 'Upcoming updates', value: '- Moderation tools Coming Soon™!\n- `/rewind` and `/fast-forward` commands coming to music!'}
+            {name: 'Upcoming updates', value: '- `/rewind` and `/fast-forward` commands coming to music!'}
         )
         .setFooter({text: '16/10/2023'})
         const v7 = new EmbedBuilder()
         .setColor('Gold')
-        .setTitle(`(NEW) Update log v1.8.3`)
+        .setTitle(`Update log v1.11.00`)
         .setDescription('Check out what is new in this update of Multi!')
         .addFields(
             {name: 'Bug fixes', value: '- `/player` has been fixed!'},
@@ -27,7 +47,7 @@ module.exports = {
         .setFooter({text: '06/10/2023'})
         const v6 = new EmbedBuilder()
         .setColor('Gold')
-        .setTitle(`Update log v1.8.21`)
+        .setTitle(`Update log v1.10.11`)
         .setDescription('Check out what is new in this update of Multi!')
         .addFields(
             {name: 'Bug fixes', value: '- NONE'},
@@ -35,29 +55,19 @@ module.exports = {
             {name: 'Upcoming updates', value: '- `/player` will get fixed\n- `/rewind` and `/fast-forward` commands coming to music!'}
         )
         .setFooter({text: '29/09/2023'})
-        const v5 = new EmbedBuilder()
-        .setColor('Gold')
-        .setTitle(`Update log v1.8.20`)
-        .setDescription('Check out what is new in this update of Multi!')
-        .addFields(
-            {name: 'Bug fixes', value: '- NONE'},
-            {name: 'What\s new?', value: '- NONE'},
-            {name: 'Upcoming updates', value: '- `/player` will get fixed\n- `/rewind` and `/fast-forward` commands coming to music!'}
-        )
-        .setFooter({text: '21/08/2023'})
         const v4 = new EmbedBuilder()
         .setColor('Gold')
-        .setTitle(`Update log v1.8.10`)
+        .setTitle(`Update log v1.10.00`)
         .setDescription('Check out what is new in this update of Multi!')
         .addFields(
             {name: 'Bug fixes', value: '- `/player` command partially fixed, expect more updates!'},
-            {name: 'What\s new?', value: '- Bot has been updated to discord.js v14.12.1!\n- `/autoplay` command added to music!\n- Dynamic loop and pause/resume controls added to `/player`!'},
-            {name: 'Upcoming updates', value: '- NONE'}
+            {name: 'What\s new?', value: '- `/autoplay` command added to music!\n- Dynamic loop and pause/resume controls added to `/player`!'},
+            {name: 'Upcoming updates', value: '-NONE'}
         )
         .setFooter({text: '10/08/2023'})
         const v3 = new EmbedBuilder()
         .setColor('Gold')
-        .setTitle(`Update log v1.8.0`)
+        .setTitle(`Update log v1.9.00`)
         .setDescription('Check out what is new in this update of Multi!')
         .addFields(
             {name: 'Bug fixes', value: '- NONE'},
@@ -67,7 +77,7 @@ module.exports = {
         .setFooter({text: '08/08/2023'})
         const v2 = new EmbedBuilder()
             .setColor('Gold')
-            .setTitle('Update log v1.7.40')
+            .setTitle('Update log v1.8.00')
             .setDescription('Check out what is new in this update of Multi!')
             .addFields(
                 {name: 'Bug fixes', value: '- Live updates from `/info` command has been optimized.'},
@@ -85,6 +95,6 @@ module.exports = {
                 {name: 'Upcoming updates', value: '- Buttons coming to music (beta)!'}
             )
             .setFooter({text: '07/08/2023'})
-        interaction.reply({embeds: [v8, v7, v6, v5, v4, v3, v2, v1], ephemeral: true})
+        interaction.reply({embeds: [v9, v8, v7, v6, v4, v3, v2, v1], ephemeral: true})
     }
 }
